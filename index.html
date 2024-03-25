@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
     <link rel="stylesheet" href="./assets/css/base.css">
     <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/grid.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
     <link rel="stylesheet" href="./assets/fronts/fontawesome-free-6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -15,9 +17,9 @@
     <div class="app">
         <!-- Header -->
         <header class="header">
-            <div class="grid">
+            <div class="grid wide">
                 <!-- Phần đầu Header -->
-                <nav class="header__navbar">
+                <nav class="header__navbar hide-on-mobile-tablet">
                     <!-- Bên trái -->
                     <ul class="header__navbar-list">
                         <!-- QR -->
@@ -131,6 +133,12 @@
 
                 <!-- Header with search -->
                 <div class="header-with-search">
+                    <!-- Icon tìm kiếm trên Mobile -->
+                    <label for="mobile-search-checkbox" class="header__mobile-search">
+                        <i class="header__mobile-search-icon fas fa-search"></i>
+                    </label>
+
+                    <!-- Logo ẩn trên Tablet -->
                     <div class="header__logo">
                         <a href="/" class="header__logo-link">
                             <svg viewBox="0 0 192 65" class="header__logo-img">
@@ -143,6 +151,9 @@
                         </a>
                     </div>
 
+                    <input type="checkbox" hidden id="mobile-search-checkbox" class="header__search-checkbox">
+
+                    <!-- Ô tìm kiếm -->
                     <div class="header__search">
                         <div class="header__search-input-wrap">
                             <input type="text" class="header__search-input" placeholder="Nhập để tìm kiếm sản phẩm">
@@ -256,14 +267,32 @@
                     </div>
                 </div>
             </div>
+
+            <!-- Sort bar cho Mobile/Tablet -->
+            <ul class="header__sort-bar">
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Liên quan</a>
+                </li>
+                <li class="header__sort-item header__sort-item--active">
+                    <a href="" class="header__sort-link">Mới nhất</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Bán chạy</a>
+                </li>
+                <li class="header__sort-item">
+                    <a href="" class="header__sort-link">Giá
+                        <i class="header__sort-link-icon fa-solid fa-angle-down"></i>
+                    </a>
+                </li>
+            </ul>
         </header>
 
         <!-- Container/Body -->
         <div class="app__container">
-            <div class="grid">
-                <div class="grid__row app__content">
+            <div class="grid wide">
+                <div class="row sm-gutter app__content">
                     <!-- Danh mục -->
-                    <div class="grid__column-2">
+                    <div class="col l-2 m-0 c-0">
                         <nav class="category">
                             <h3 class="category__heading">Danh mục</h3>
             
@@ -282,9 +311,9 @@
                     </div>
 
                     <!-- Filter, Item và Pagination -->
-                    <div class="grid__column-10">
+                    <div class="col l-10 m-12 c-12">
                         <!-- Filter bar -->
-                        <div class="home-filter">
+                        <div class="home-filter hide-on-mobile-tablet">
                             <span class="home-filter__label">Sắp xếp theo</span>
                             <button class="home-filter__btn btn">Phổ biến</button>
                             <button class="home-filter__btn btn btn--primary">Mới nhất</button>
@@ -321,11 +350,35 @@
                             </div>
                         </div>
 
-                        <!-- Item -->
+                        <!-- Category cho Mobile -->
+                        <nav class="mobile-category">
+                            <ul class="mobile-category__list">
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">Áo khoác dù</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">Áo bomber</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">Áo hoodie</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">Áo khoác nỉ</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">Áo khoác da</a>
+                                </li>
+                                <li class="mobile-category__item">
+                                    <a href="" class="mobile-category__link">Áo khoác jean</a>
+                                </li>
+                            </ul>
+                        </nav>
+
+                        <!-- Product content -->
                         <div class="home-product">
-                            <div class="grid__row">
+                            <div class="row sm-gutter">
                                 <!-- Product item -->
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -361,7 +414,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -397,7 +450,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -433,7 +486,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -469,7 +522,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -505,7 +558,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);">
@@ -544,7 +597,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img"
                                             style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);">
@@ -583,7 +636,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -619,7 +672,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -655,7 +708,7 @@
                                         </div>
                                     </a>
                                 </div>
-                                <div class="grid__column-2-4">
+                                <div class="col l-2-4 m-4 c-6">
                                     <a class="home-product-item" href="#">
                                         <div class="home-product-item__img" style="background-image: url(https://down-vn.img.susercontent.com/file/vn-11134201-7r98o-lnaz9o48rmjx48);"></div>
                                         <h4 class="home-product-item__name">Áo Khoác Bomber Adidas Thể Thao Nam Vải Thun Nỉ Dày Co Giãn Khóa Chống Áo Khoác Bomber Adidas Thể Thao Nam</h4>
@@ -738,10 +791,10 @@
         <!-- Footer -->
         <footer class="footer">
             <!-- Phần đầu Footer -->
-            <div class="grid">
-                <div class="grid__row">
+            <div class="grid wide footer__content">
+                <div class="row">
                     <!-- Cột Chăm sóc khách hàng -->
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Chăm sóc khách hàng</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -756,7 +809,7 @@
                         </ul>
                     </div>
                     <!-- Cột Giới thiệu -->
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Giới thiệu</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -771,7 +824,7 @@
                         </ul>
                     </div>
                     <!-- Cột Danh mục -->
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Danh mục</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -786,7 +839,7 @@
                         </ul>
                     </div>
                     <!-- Cột Theo dõi -->
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Theo dõi</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -810,7 +863,7 @@
                         </ul>
                     </div>
                     <!-- Cột QR -->
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-8 c-12">
                         <h3 class="footer__heading">Vào cửa hàng trên ứng dụng Shopee</h3>
                         <div class="footer__download">
                             <img src="assets/img/QR-code.png" alt="Download QR" class="footer__download-qr">
@@ -828,7 +881,7 @@
             </div>
             <!-- Phần cuối Footer -->
             <div class="footer__bottom">
-                <div class="grid">
+                <div class="grid wide">
                     <p class="footer__text">© 2024 - Bản quyền thuộc về Công ty Shopee</p>
                 </div>
             </div>
